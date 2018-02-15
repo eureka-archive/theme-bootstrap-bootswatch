@@ -1,0 +1,21 @@
+{
+  "name": "eureka/theme-bootstrap-bootswatch",
+  "description": "Bootstrap v4 theme for Eureka Framework",
+  "type": "library",
+  "license": "MIT",
+
+  "authors": [
+    {
+      "name": "Romain Cottard",
+      "role": "Developer"
+    }
+
+  ],
+
+  "autoload": {
+  },
+
+  "require": {
+  }
+
+}

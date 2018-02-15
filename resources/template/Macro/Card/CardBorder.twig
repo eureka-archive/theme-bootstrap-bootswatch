@@ -1,0 +1,7 @@
+{% macro card(type, header, title, subtitle, content, footer, other_content_raw, margin) %}
+<div class="card border-{{ type|default('primary') }} mb-{{ margin|default('3') }}">
+    {% import '@template/Macro/Card/CardContent.twig' as CardContent %}
+
+    {{ CardContent.card(type, header, title, subtitle, content, footer, other_content_raw) }}
+</div>
+{% endmacro %}

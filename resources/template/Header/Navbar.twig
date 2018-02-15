@@ -1,0 +1,37 @@
+{% block header %}
+
+<div class="navbar navbar-expand-lg fixed-top navbar-dark {{ theme.navbar.bg }}">
+    <div class="container">
+        <a href="/" class="navbar-brand">{% block header_navbar_name %}{% endblock %}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+            {% for item in menu %}
+                {% if item.hasSubmenu() %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="menu-{{ loop.index }}">{{ item.getName() }} <span class="caret"></span></a>
+                    <div class="dropdown-menu" aria-labelledby="menu-{{ loop.index }}">
+                    {% for subitem in item.getSubmenu() %}
+                        {% if subitem.isDivider() %}
+                            <div class="dropdown-divider"></div>
+                        {% else %}
+                            <a class="dropdown-item" href="{{ subitem.getUri() }}">{{ subitem.getName() }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ item.getUri() }}">{{ item.getName() }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

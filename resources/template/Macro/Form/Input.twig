@@ -1,0 +1,30 @@
+{% macro input(label, id, name, placeholder, value, error, formClass) %}
+    <div class="{{ formClass|default('form-group') }}{% if error %} has-danger{% endif %}">
+        <label for="{{ id }}">{{ label }}</label>
+        <input type="text" name="{{ name }}" class="form-control{% if error %} is-invalid{% endif %}" id="{{ id }}" placeholder="{{ placeholder }}" value="{{ value }}">
+        {% if error %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro textarea(label, id, name, placeholder, value, error, rows) %}
+    <div class="{{ col }}{% if error %} has-danger{% endif %}">
+    <label for="{{ id }}">{{ label }}</label>
+    <textarea name="{{ name }}" class="form-control{% if error %} is-invalid{% endif %}" id="{{ id }}" placeholder="{{ placeholder }}" rows="{{ rows|default('8') }}">{{ value }}</textarea>
+    {% if error %}
+    <div class="invalid-feedback">{{ error }}</div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro select2Multiple(label, id, name, list, values, error, formClass) %}
+<div class="{{ formClass|default('form-group') }}{% if error %} has-danger{% endif %}">
+    <label for="{{ id }}">{{ label }}</label>
+    <select id="{{ id }}" name="{{ name }}[]" multiple="multiple" style="width: 100%;" class="form-control{% if error %} is-invalid{% endif %}">
+        {% for item in list %}
+            <option value="{{ item.value }}"{% if item.value in values %} selected{% endif %}>{{ item.label }}</option>
+        {% endfor %}
+    </select>
+</div>
+{% endmacro %}

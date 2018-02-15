@@ -1,2 +1,12 @@
 # theme-bootstrap-bootswatch
-Base theming for eureka framework
+Bootstrap Bootswatch themes for Eureka Framework.
+Common files (statics, template &amp; layout).
+
+
+## Included Themes
+ - Pulse
+ - Sandstone
+ - Sketchy
+
+## Themes origin
+https://bootswatch.com/

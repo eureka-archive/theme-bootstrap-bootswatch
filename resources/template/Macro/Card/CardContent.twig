@@ -1,0 +1,21 @@
+{% macro card(type, header, title, subtitle, content, footer, other_content_raw) %}
+
+    {% if header %}
+    <div class="card-header">{{ header }}</div>
+    {% endif %}
+
+    <div class="card-body{% if type %} text-{{ type|default('primary') }}{% endif %}">
+        <h4 class="card-title">{{ title }}</h4>
+        {% if subtitle %}<h6 class="card-subtitle mb-2 text-muted">{{ subtitle }}</h6>{% endif %}
+        <p class="card-text">{{ content }}</p>
+    </div>
+
+    {% if other_content_raw %}
+    {{ other_content_raw|raw }}
+    {% endif %}
+
+    {% if footer %}
+    <div class="card-footer text-muted">{{ footer }}</div>
+    {% endif %}
+
+{% endmacro %}

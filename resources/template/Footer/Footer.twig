@@ -1,0 +1,27 @@
+{% block footer %}
+
+<footer id="footer">
+    <div class="row">
+        <div class="col-lg-11">
+
+            {% block footer_links %}
+            <ul class="list-unstyled">
+                <li class="float-lg-right"><a href="#top">Back to top</a></li>
+                {% for link in meta.footer.links %}
+                <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endblock %}
+
+            {% block footer_copyright %}
+                <p>Copyright &copy; {{ meta.copyright.year }} {{ meta.copyright.name }}. All rights reserved.</p>
+            {% endblock %}
+        </div>
+        <div class="col-lg-1">
+            {% block footer_version %}<b>Version</b> {{ meta.version }}{% endblock %}
+        </div>
+    </div>
+
+</footer>
+
+{% endblock %}
